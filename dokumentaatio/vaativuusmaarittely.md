@@ -1,1 +1,3 @@
+# Vaativuusmäärittely
 
+## Sovelluksen tarkoitus
