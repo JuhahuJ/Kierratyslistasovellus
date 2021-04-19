@@ -6,6 +6,7 @@ authors = ["JuhahuJ <juha.lehtinen@helsinki.fi>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+python-dotenv = "^0.17.0"
 
 [tool.poetry.dev-dependencies]
 
