@@ -31,10 +31,10 @@ class UI:
         self._current_view = ListView(self._root, self._handle_start)
         self._current_view.pack()
 
-#TODO: ohjelman voi resetoida
+
 
 window = Tk()
-window.title("TkInter example")
+window.title("Kierrätys")
 
 ui = UI(window)
 ui.start()
