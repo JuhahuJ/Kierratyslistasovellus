@@ -1,3 +1,6 @@
 /laskarit/viikko2/unicafe/src/__pycache__
 /laskarit/viikko2/unicafe/src/tests/__pycache__
 /laskarit/viikko2/unicafe/.pytest_cache
+/src/__pycache__
+/src/entities/__pycache__
+src/repositories/__pycache__

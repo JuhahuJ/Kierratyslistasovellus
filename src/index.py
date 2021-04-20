@@ -37,7 +37,7 @@ class UI:
 
     def _show_register_view(self):
         self._hide_current_view()
-        self._current_view = ListView(self._root, self._handle_register)
+        self._current_view = RegisterView(self._root, self._handle_start)
         self._current_view.pack()
 
 

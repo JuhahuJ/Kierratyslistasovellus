@@ -3,11 +3,11 @@ from entities.user import User
 from repositories.user_repository import user_repository
 
 class RegisterView:
-    def __init__(self, root, handle_list, user_repository=user_repository):
+    def __init__(self, root, handle_start, user_repository=user_repository):
         self._root = root
         self._username_entry = None
         self._password_entry = None
-        self._handle_list = handle_list
+        self._handle_start = handle_start
         self._frame = None
         self._initialize()
         self._user_repository = user_repository
@@ -23,7 +23,7 @@ class RegisterView:
         password = self._password_entry.get()
         user = User(username, password)
         self._user_repository.create_user(user)        
-        self._handle_list()
+        self._handle_start()
 
 
 
