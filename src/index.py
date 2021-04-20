@@ -1,6 +1,7 @@
 from tkinter import Tk
 from start_view import StartView
 from list_view import ListView
+from register_view import RegisterView
 
 class UI:
     def __init__(self, root):
@@ -20,15 +21,23 @@ class UI:
 
     def _handle_start(self):
         self._show_start_view()
+    
+    def _handle_register(self):
+        self._show_register_view()
 
     def _show_start_view(self):
         self._hide_current_view()
-        self._current_view = StartView(self._root, self._handle_list)
+        self._current_view = StartView(self._root, self._handle_list, self._handle_register)
         self._current_view.pack()
 
     def _show_list_view(self):
         self._hide_current_view()
         self._current_view = ListView(self._root, self._handle_start)
+        self._current_view.pack()
+
+    def _show_register_view(self):
+        self._hide_current_view()
+        self._current_view = ListView(self._root, self._handle_register)
         self._current_view.pack()
 
 

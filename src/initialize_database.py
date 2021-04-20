@@ -7,7 +7,7 @@ def drop_tables(connection):
 
 def create_tables(connection):
     cursor = connection.cursor()
-    cursor.execute('''create table users(id text primary key, username text, password text);''')
+    cursor.execute('''create table users(id text primary key, username text unique, password text);''')
     connection.commit()
 
 def initialize_database():
