@@ -6,7 +6,7 @@ Sovelluksen avulla käyttäjä voi pitää kirjaa kierrätyksestään ja roskauk
 
 ## Käyttäjät
 
-Sovelluksessa on normaalikäyttäjiä ja erikois-oikeuksilla varustettuja adminkäyttäjiä.
+Sovelluksessa on normaalikäyttäjiä ja erikoisoikeuksilla varustettuja adminkäyttäjiä.
 
 ## Käyttöliittymät
 
