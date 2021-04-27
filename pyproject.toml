@@ -8,6 +8,7 @@ authors = ["JuhahuJ <juha.lehtinen@helsinki.fi>"]
 python = "^3.8"
 python-dotenv = "^0.17.0"
 invoke = "^1.5.0"
+pytest = "^6.2.3"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.7.4"
