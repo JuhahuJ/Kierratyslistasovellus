@@ -1,6 +1,7 @@
 from tkinter import ttk, constants
 from services.recycle_service import recycle_service
 
+
 class ListView:
     def __init__(self, root, handle_start):
         self._root = root
@@ -15,19 +16,19 @@ class ListView:
         self.clothes_entry = None
         self._handle_start = handle_start
         self._frame = None
-        self._initialize()    
+        self._initialize()
 
     def pack(self):
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
         self._frame.destroy()
-    
+
     def add_to_bottle_can(self):
         amount = self.bottle_can_entry.get()
         recycle_service.recycle_list_update_bottles_cans(amount)
         self._handle_start()
-    
+
     def add_to_cardboard(self):
         amount = self.cardboard_entry.get()
         recycle_service.recycle_list_update_cardboard(amount)
@@ -67,60 +68,81 @@ class ListView:
         amount = self.clothes_entry.get()
         recycle_service.recycle_list_update_clothes(amount)
         self._handle_start()
-        
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
         label = ttk.Label(master=self._frame, text="Recycling list")
 
-        bottle_can_label = ttk.Label(master=self._frame, text="Bottles and cans recycled:")
-        bottle_can_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[0])
+        bottle_can_label = ttk.Label(
+            master=self._frame, text="Bottles and cans recycled:")
+        bottle_can_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[0])
         self.bottle_can_entry = ttk.Entry(master=self._frame)
-        bottle_can_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_bottle_can)
+        bottle_can_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_bottle_can)
 
-        cardboard_label = ttk.Label(master=self._frame, text="Cardboard recycled:")
-        cardboard_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[1])
+        cardboard_label = ttk.Label(
+            master=self._frame, text="Cardboard recycled:")
+        cardboard_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[1])
         self.cardboard_entry = ttk.Entry(master=self._frame)
-        cardboard_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_cardboard)
+        cardboard_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_cardboard)
 
-        electronics_label = ttk.Label(master=self._frame, text="Electronics recycled:")
-        electronics_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[2])
+        electronics_label = ttk.Label(
+            master=self._frame, text="Electronics recycled:")
+        electronics_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[2])
         self.electronics_entry = ttk.Entry(master=self._frame)
-        electronics_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_electronics)
+        electronics_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_electronics)
 
         glass_label = ttk.Label(master=self._frame, text="Glass recycled:")
-        glass_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[3])
+        glass_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[3])
         self.glass_entry = ttk.Entry(master=self._frame)
-        glass_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_glass)
+        glass_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_glass)
 
         metal_label = ttk.Label(master=self._frame, text="Metal recycled:")
-        metal_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[4])
+        metal_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[4])
         self.metal_entry = ttk.Entry(master=self._frame)
-        metal_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_metal)
+        metal_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_metal)
 
         plastic_label = ttk.Label(master=self._frame, text="Plastic recycled:")
-        plastic_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[5])
+        plastic_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[5])
         self.plastic_entry = ttk.Entry(master=self._frame)
-        plastic_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_plastic)
+        plastic_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_plastic)
 
         paper_label = ttk.Label(master=self._frame, text="Paper recycled:")
-        paper_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[6])
+        paper_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[6])
         self.paper_entry = ttk.Entry(master=self._frame)
-        paper_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_paper)
+        paper_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_paper)
 
-        batteries_label = ttk.Label(master=self._frame, text="Batteries recycled:")
-        batteries_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[7])
+        batteries_label = ttk.Label(
+            master=self._frame, text="Batteries recycled:")
+        batteries_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[7])
         self.batteries_entry = ttk.Entry(master=self._frame)
-        batteries_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_batteries)
+        batteries_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_batteries)
 
         clothes_label = ttk.Label(master=self._frame, text="Clothes recycled:")
-        clothes_amount = ttk.Label(master=self._frame, text=recycle_service.recycle_list()[8])
+        clothes_amount = ttk.Label(
+            master=self._frame, text=recycle_service.recycle_list()[8])
         self.clothes_entry = ttk.Entry(master=self._frame)
-        clothes_button = ttk.Button(master=self._frame, text="Add more", command=self.add_to_clothes)
+        clothes_button = ttk.Button(
+            master=self._frame, text="Add more", command=self.add_to_clothes)
 
-        button = ttk.Button(master=self._frame, text="Logout", command=self._handle_start)
-
+        button = ttk.Button(master=self._frame, text="Logout",
+                            command=self._handle_start)
 
         label.grid(row=0, column=0)
 
@@ -170,4 +192,3 @@ class ListView:
         clothes_button.grid(row=9, column=3)
 
         button.grid()
-        
