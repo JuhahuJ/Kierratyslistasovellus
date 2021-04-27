@@ -1,9 +1,9 @@
 from tkinter import ttk, constants
 from entities.user import User
-from repositories.user_repository import user_repository
+from services.recycle_service import recycle_service
 
 class StartView:
-    def __init__(self, root, handle_list, handle_register, user_repository=user_repository):
+    def __init__(self, root, handle_list, handle_register):
         self._root = root
         self._username_entry = None
         self._password_entry = None
@@ -11,7 +11,6 @@ class StartView:
         self._handle_register = handle_register
         self._frame = None
         self._initialize()
-        self._user_repository = user_repository
 
     def pack(self):
         self._frame.pack(fill=constants.X)
@@ -22,9 +21,7 @@ class StartView:
     def _login_handler(self):
         username = self._username_entry.get()
         password = self._password_entry.get()
-        user = self._user_repository.find_user(username)
-        if not user or user.password != password:
-            return print("Wrong username or password")
+        recycle_service.login(username, password)
         self._handle_list()
 
 

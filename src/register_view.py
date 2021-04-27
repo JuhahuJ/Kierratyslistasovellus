@@ -1,16 +1,15 @@
 from tkinter import ttk, constants
 from entities.user import User
-from repositories.user_repository import user_repository
+from services.recycle_service import recycle_service
 
 class RegisterView:
-    def __init__(self, root, handle_start, user_repository=user_repository):
+    def __init__(self, root, handle_start):
         self._root = root
         self._username_entry = None
         self._password_entry = None
         self._handle_start = handle_start
         self._frame = None
         self._initialize()
-        self._user_repository = user_repository
 
     def pack(self):
         self._frame.pack(fill=constants.X)
@@ -21,8 +20,7 @@ class RegisterView:
     def _register_handler(self):
         username = self._username_entry.get()
         password = self._password_entry.get()
-        user = User(username, password)
-        self._user_repository.create_user(user)        
+        recycle_service.register(username, password)  
         self._handle_start()
 
 
