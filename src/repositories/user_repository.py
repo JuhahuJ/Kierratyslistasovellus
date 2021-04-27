@@ -17,6 +17,8 @@ class UserRepository:
     def create_user(self, user):
         cursor = self._connection.cursor()
         cursor.execute('insert into users (username, password) values (?, ?)', (user.username, user.password))
+        user_id = cursor.execute('select id from users where username = ?', (user.username,)).fetchone()[0]
+        cursor.execute('insert into recycle(username_id, bottles_cans, cardboard, electronics, glass, metal, plastic, paper, batteries, clothes) values (?, 0, 0, 0, 0, 0, 0, 0, 0, 0)', (user_id,))
         self._connection.commit()
         return user
 

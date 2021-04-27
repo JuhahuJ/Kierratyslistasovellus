@@ -31,5 +31,77 @@ class RecycleService:
         get_recycle = connection.execute('select bottles_cans, cardboard, electronics, glass, metal, plastic, paper, batteries, clothes from recycle where username_id = ?', (username_id,)).fetchone()
         return get_recycle
 
+    def recycle_list_update_bottles_cans(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set bottles_cans = (bottles_cans + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_cardboard(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set cardboard = (cardboard + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_electronics(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set electronics = (electronics + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_glass(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set glass = (glass + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_metal(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set metal = (metal + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_plastic(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set plastic = (plastic + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_paper(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set paper = (paper + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_batteries(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set batteries = (batteries + ?) where username_id = ?', (amount, username_id,))
+        connection.commit()
+        return
+
+    def recycle_list_update_clothes(self, amount):
+        connection = get_database_connection()
+        username = self._user.username
+        username_id = connection.execute('select id from users where username = ?', (username,)).fetchone()[0]
+        connection.execute('update recycle set clothes = (clothes + ?)', (amount,))
+        connection.commit()
+        return
+
 
 recycle_service = RecycleService()

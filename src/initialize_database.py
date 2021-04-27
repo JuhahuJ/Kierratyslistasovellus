@@ -8,9 +8,8 @@ def drop_tables(connection):
 
 def create_tables(connection):
     cursor = connection.cursor()
-    cursor.execute('''create table users(id integer primary key, username text unique, password text);''')
+    cursor.execute('''create table users(id integer primary key, username text, password text);''')
     cursor.execute('''create table recycle(id integer primary key, username_id integer, bottles_cans integer, cardboard integer, electronics integer, glass integer, metal integer, plastic integer, paper integer, batteries integer, clothes integer);''')
-    cursor.execute('''insert into recycle(username_id, bottles_cans, cardboard, electronics, glass, metal, plastic, paper, batteries, clothes) values (1, 0, 0, 0, 0, 0, 0, 0, 0, 0);''')
     connection.commit()
 
 def initialize_database():
