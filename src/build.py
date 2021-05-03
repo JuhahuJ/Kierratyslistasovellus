@@ -2,6 +2,7 @@ from initialize_database import initialize_database
 
 
 def build():
+    '''initializing database'''
     initialize_database()
 
 

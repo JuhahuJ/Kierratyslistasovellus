@@ -3,6 +3,7 @@ from services.recycle_service import recycle_service
 
 
 class StartView:
+    '''this class is responsible for the start view of the app'''
     def __init__(self, root, handle_list, handle_register):
         self._root = root
         self._username_entry = None
@@ -13,9 +14,11 @@ class StartView:
         self._initialize()
 
     def pack(self):
+        '''pack the frame'''
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        '''destroy the frame'''
         self._frame.destroy()
 
     def _login_handler(self):

@@ -3,6 +3,7 @@ from services.recycle_service import recycle_service
 
 
 class RegisterView:
+    '''this class is responsible for the register view of the app'''
     def __init__(self, root, handle_start):
         self._root = root
         self._username_entry = None
@@ -12,9 +13,11 @@ class RegisterView:
         self._initialize()
 
     def pack(self):
+        '''pack the frame'''
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        '''destroy the frame'''
         self._frame.destroy()
 
     def _register_handler(self):

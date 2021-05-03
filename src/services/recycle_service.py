@@ -5,11 +5,14 @@ from database_connection import get_database_connection
 
 
 class RecycleService:
+    '''this class is responsible for the app's functions'''
     def __init__(self, user_repository=default_user_repository):
         self._user = None
         self._user_repository = user_repository
 
     def login(self, username, password):
+        '''logging in a user by finding the user from the database with their username
+        and checking if the password given matches the password found in the database'''
         user = self._user_repository.find_user(username)
         if not user or user.password != password:
             return print("Wrong username or password")
@@ -17,10 +20,12 @@ class RecycleService:
         return user
 
     def register(self, username, password):
+        '''creating a user with the given username and password'''
         user = self._user_repository.create_user(User(username, password))
         return user
 
     def recycle_list(self):
+        '''getting the amount of items recycled from the database matching with the current user'''
         connection = get_database_connection()
         username = self._user.username
         username_id = connection.execute(
