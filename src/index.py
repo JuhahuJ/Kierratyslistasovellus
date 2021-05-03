@@ -5,10 +5,14 @@ from register_view import RegisterView
 
 
 class UI:
-    '''this class is responsible for changing between the different views of the app'''
+    '''this class is responsible for changing between the different views of the'''
     def __init__(self, root):
         self._root = root
         self._current_view = None
+
+    def start(self):
+        '''starts the app'''
+        self._show_start_view()
 
     def _hide_current_view(self):
         if self._current_view:
@@ -45,6 +49,6 @@ window = Tk()
 window.title("Kierrätys")
 
 ui = UI(window)
-ui._handle_start()
+ui.start()
 
 window.mainloop()
