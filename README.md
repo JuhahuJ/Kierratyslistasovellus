@@ -8,6 +8,8 @@ Sovelluksessa voi tällä hetkellä luoda käyttäjän ja kirjautua sisään. Si
 
 [Tuntikirjanpito](https://github.com/JuhahuJ/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+[Ohjeet](https://github.com/JuhahuJ/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 # Asennus
 
 1. Asenna poetry komennolla:
