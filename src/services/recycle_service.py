@@ -3,6 +3,12 @@ from repositories.user_repository import (
     user_repository as default_user_repository)
 from database_connection import get_database_connection
 
+class IncorrectUserError(Exception):
+    pass
+
+class ExistingUsernameError(Exception):
+    pass
+
 
 class RecycleService:
     '''this class is responsible for the app's functions'''
@@ -15,12 +21,15 @@ class RecycleService:
         and checking if the password given matches the password found in the database'''
         user = self._user_repository.find_user(username)
         if not user or user.password != password:
-            return print("Wrong username or password")
+            raise IncorrectUserError('Username or password incorrect')
         self._user = user
         return user
 
     def register(self, username, password):
         '''creating a user with the given username and password'''
+        duplicate_user = self._user_repository.find_user(username)
+        if duplicate_user:
+            raise ExistingUsernameError(f'There already exists a user with the username: {username}')
         user = self._user_repository.create_user(User(username, password))
         return user
 
