@@ -9,6 +9,11 @@ class IncorrectUserError(Exception):
 class ExistingUsernameError(Exception):
     pass
 
+class UsernameTooShortError(Exception):
+    pass
+
+class PasswordTooShortError(Exception):
+    pass
 
 class RecycleService:
     '''this class is responsible for the app's functions'''
@@ -30,6 +35,10 @@ class RecycleService:
         duplicate_user = self._user_repository.find_user(username)
         if duplicate_user:
             raise ExistingUsernameError(f'There already exists a user with the username: {username}')
+        if len(username) < 3:
+            raise UsernameTooShortError('Username has to be at least three characters long')
+        if len(password) <4:
+            raise PasswordTooShortError('Password has to be at least four characters long')
         user = self._user_repository.create_user(User(username, password))
         return user
 

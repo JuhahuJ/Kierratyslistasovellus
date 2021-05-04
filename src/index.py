@@ -5,7 +5,7 @@ from register_view import RegisterView
 
 
 class UI:
-    '''this class is responsible for changing between the different views of the'''
+    '''this class is responsible for changing between the different views of the app'''
     def __init__(self, root):
         self._root = root
         self._current_view = None
