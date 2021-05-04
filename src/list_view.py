@@ -30,7 +30,7 @@ class ListView:
     def add_to_bottle_can(self):
         '''update selected material with selected amount'''
         amount = self.bottle_can_entry.get()
-        recycle_service.recycle_list_update(amount, "bottle_can")
+        recycle_service.recycle_list_update(amount, "bottles_cans")
         self._handle_start()
 
     def add_to_cardboard(self):

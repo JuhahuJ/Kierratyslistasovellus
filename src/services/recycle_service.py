@@ -58,51 +58,10 @@ class RecycleService:
         username = self._user.username
         username_id = connection.execute(
             'select id from users where username = ?', (username,)).fetchone()[0]
-        if what_to_update == "bottle_can":
-            connection.execute(
-                'update recycle set bottles_cans = (bottles_cans + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "cardboard":
-            connection.execute(
-                'update recycle set cardboard = (cardboard + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "electronics":
-            connection.execute(
-                'update recycle set electronics = (electronics + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "glass":
-            connection.execute(
-                'update recycle set glass = (glass + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "metal":
-            connection.execute(
-                'update recycle set metal = (metal + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "plastic":
-            connection.execute(
-                'update recycle set plastic = (plastic + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "paper":
-            connection.execute(
-                'update recycle set paper = (paper + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "batteries":
-            connection.execute(
-                'update recycle set batteries = (batteries + ?) where username_id = ?',
-                (amount, username_id,))
-            connection.commit()
-        elif what_to_update == "clothes":
-            connection.execute(
-                'update recycle set clothes = (clothes + ?) where username_id = ?',
-                (amount, username_id))
-            connection.commit()
+        connection.execute(
+            'update recycle set {} = ({}+?) where username_id = ?'.format(what_to_update, what_to_update),
+            (amount, username_id,))
+        connection.commit()
 
 
 recycle_service = RecycleService()
