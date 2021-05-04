@@ -6,3 +6,7 @@
 | 20.4  | 5 h  | kirjautuminen ja rekisteröityminen |
 | 26.4  | 2 h  | kirjautuminen ja rekisteröityminen parannus |
 | 27.4  | 7 h  | kierrätyslista |
+| 3.5  | 3 h  | docstring ja koodin siistiminen |
+| 4.5  | 4 h  | virheilmoitukset |
+
+Yhteensä 28 h
