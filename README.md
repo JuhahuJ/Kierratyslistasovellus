@@ -1,6 +1,6 @@
 # Sovelluksen tämänhetkinen tila
 
-Sovelluksen tekeminen on jäljessä, jonka vuoksi tulen ottamaan kurssin tahdin kiinni ensi viikkoon mennessä. Sovelluksessa voi tällä hetkellä luoda käyttäjän ja kirjautua sisään. Mitään testejä ei voi vielä tehdä. Jos yrittää luoda käyttäjän, joka on jo olemassa, mitään ei tapahdu.
+Sovelluksessa voi tällä hetkellä luoda käyttäjän ja kirjautua sisään. Sisäänkirjautumisen jälkeen näkyy käyttäjäkohtainen listanäkymä, jossa on eri kierrätysmateriaaleja. Materiaalien määrää voi lisätä. Materiaaleista puuttuu tällä hetkellä yksiköt. Virheilmoitukset eivät ole vielä paikallaan, jonka takia sovellus jäätyy ja täytyy käynnistää uudelleen aina, jos tekee virheen, esim. syöttää väärän käyttäjänimen tai salasanan. Testit eivät ole tällä hetkellä toiminnassa, koska pytest ei löydä entities kansiota.
 
 # Dokumentaatio
 
