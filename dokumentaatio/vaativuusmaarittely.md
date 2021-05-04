@@ -19,7 +19,11 @@ Sovelluksessa on neljä näkymää.
 ## Sovelluksen toiminnot
 Käyttäjä voi luoda käyttäjätunnuksen. Tehty
 
-Käyttäjätunnuksen minimipituus on 3 merkkiä. Adminkäyttäjillä ei minimipituutta.
+Käyttäjätunnuksen minimipituus on 3 merkkiä. Tehty
+
+Adminkäyttäjillä ei minimipituutta.
+
+Salasanan minimipituus on 4 merkkiä. Tehty
 
 Käyttäjä voi kirjautua sisään. Tehty
 
