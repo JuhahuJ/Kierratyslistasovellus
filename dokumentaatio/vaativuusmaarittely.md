@@ -27,7 +27,7 @@ Salasanan minimipituus on 4 merkkiä. Tehty
 
 Käyttäjä voi kirjautua sisään. Tehty
 
-Jos käyttäjätunnusta ei ole, sovellus antaa virheilmoituksen.
+Jos käyttäjätunnus on jo olemassa, sovellus antaa virheilmoituksen. Tehty
 
 Listanäkymässä käyttäjä näkee eri kierrätysmateriaalit. Hän voi lisätä valitsemansa määrän materiaalia kierrätetyksi. Tehty
 
