@@ -20,7 +20,7 @@ def coverage(ctx):
     '''getting the coverage with poetry run invoke coverage'''
     ctx.run("coverage run --branch -m pytest src")
 
-@task()
+@task(coverage)
 def coverage_report(ctx):
     '''getting the coverage with poetry run invoke coverage_report'''
     ctx.run("coverage html")

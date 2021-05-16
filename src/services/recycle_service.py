@@ -63,5 +63,8 @@ class RecycleService:
             (amount, username_id,))
         connection.commit()
 
+    def get_users(self):
+        """return all users"""
+        return self._user_repository.find_all()
 
 recycle_service = RecycleService()

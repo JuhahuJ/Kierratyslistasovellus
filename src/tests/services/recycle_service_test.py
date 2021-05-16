@@ -21,6 +21,9 @@ class FakeUserRepository:
         matching_users_list = list(matching_users)
         return matching_users_list[0] if len(matching_users_list) > 0 else None
 
+    def find_all(self):
+        return self.users
+
     def create_user(self, user):
         self.users.append(user)
         return user
@@ -28,20 +31,22 @@ class FakeUserRepository:
 
 class TestRecycleService(unittest.TestCase):
     def setUp(self):
-        self.recycle_service = RecycleService(FakeUserRepository(), Fakesql())
+        self.recycle_service = RecycleService(FakeUserRepository())
         self.user_ahuj = User('ahuj', 'abab223')
 
     def login(self, user):
-        self.recycle_service.create_user(user.username, user.password)
+        self.recycle_service.register(user.username, user.password)
 
     def test_add_to_recycle(self):
-        self.login_user(self.user_ahuj)
-        add_to_bottle_can(3)
-        self.assertEqual(recycle_table[2], 3)
+        self.login(self.user_ahuj)
+        asia = Fakesql()
+        asia.add_to_bottle_can(3)
+        self.assertEqual(asia.recycle_table[2], 3)
 
-    def test_create_user(self):
+    def test_register(self):
         username = self.user_ahuj.username
         password = self.user_ahuj.password
-        self.recycle_service.create_user(username, password)
+        users = self.recycle_service.get_users()
+        self.recycle_service.register(username, password)
         self.assertEqual(len(users), 1)
         self.assertEqual(users[0].username, username)
