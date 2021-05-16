@@ -31,5 +31,11 @@ class UserRepository:
         self._connection.commit()
         return user
 
+    def check_admin_password(self, password):
+        '''gets the admin password from the database'''
+        cursor = self._connection.cursor()
+        adminpass = cursor.execute('select password from adminpass').fetchone()[0]
+        return adminpass
+
 
 user_repository = UserRepository(get_database_connection())

@@ -15,6 +15,9 @@ class UsernameTooShortError(Exception):
 class PasswordTooShortError(Exception):
     pass
 
+class IncorrectAdminPassError(Exception):
+    pass
+
 class RecycleService:
     '''this class is responsible for the app's functions'''
     def __init__(self, user_repository=default_user_repository):
@@ -29,6 +32,14 @@ class RecycleService:
             raise IncorrectUserError('Username or password incorrect')
         self._user = user
         return user
+
+    def login_admin(self, password):
+        '''loggin in the admin account'''
+        check = self._user_repository.check_admin_password(password)
+        if check == password:
+            return check
+        else:
+            raise IncorrectAdminPassError('That is not the admin password')
 
     def register(self, username, password):
         '''creating a user with the given username and password'''
