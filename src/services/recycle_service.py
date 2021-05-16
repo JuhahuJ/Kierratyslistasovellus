@@ -78,4 +78,8 @@ class RecycleService:
         """return all users"""
         return self._user_repository.find_all()
 
+    def remove_user(self, username):
+        '''removes user'''
+        return self._user_repository.del_user(username)
+
 recycle_service = RecycleService()

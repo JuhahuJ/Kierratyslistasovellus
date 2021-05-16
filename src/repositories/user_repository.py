@@ -19,6 +19,12 @@ class UserRepository:
         row = cursor.fetchone()
         return get_user(row)
 
+    def find_all(self):
+        '''returns all users in database'''
+        cursor = self._connection.cursor()
+        users = cursor.execute('select * from users').fetchall()
+        return users
+
     def create_user(self, user):
         '''creates user and inserts them into database'''
         cursor = self._connection.cursor()
@@ -36,6 +42,13 @@ class UserRepository:
         cursor = self._connection.cursor()
         adminpass = cursor.execute('select password from adminpass').fetchone()[0]
         return adminpass
+
+    def del_user(self, username):
+        '''deletes a user from the database'''
+        cursor = self._connection.cursor()
+        cursor.execute('delete from users where username = ?', (username,))
+        self._connection.commit()
+        return
 
 
 user_repository = UserRepository(get_database_connection())

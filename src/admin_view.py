@@ -1,5 +1,6 @@
 from tkinter import ttk, constants
 from services.recycle_service import recycle_service
+from tkinter.messagebox import askyesno
 
 
 class AdminView:
@@ -7,6 +8,7 @@ class AdminView:
     def __init__(self, root, handle_start):
         self._root = root
         self._password_entry = None
+        self.show_users_button = None
         self._handle_start = handle_start
         self._frame = None
         self._initialize()
@@ -24,21 +26,37 @@ class AdminView:
         recycle_service.login_admin(password)
         self._handle_list()
 
+    def show_users(self):
+        self.show_users_button.destroy()
+        users_label = ttk.Label(master=self._frame, text="Users:")
+        users_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
+        for i in range(len(recycle_service.get_users())):
+            user_button = ttk.Button(
+                master=self._frame, text=(recycle_service.get_users()[i][1]), command=lambda j=recycle_service.get_users()[i][1]: self.confirm(j))
+            user_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
+
+    def del_user(self, username):
+        print(username)
+        recycle_service.remove_user(username)
+
+    def confirm(self, username):
+        tempname = askyesno(title="confirmation", message='Are you sure you want to delete this user?')
+        if tempname:
+            self.del_user(username)
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        heading_label = ttk.Label(master=self._frame, text="Admin login")
+        heading_label = ttk.Label(master=self._frame, text="Admin menu")
 
-        password_label = ttk.Label(master=self._frame, text="Password")
-        self._password_entry = ttk.Entry(master=self._frame)
+        self.show_users_button = ttk.Button(
+            master=self._frame, text="Show users", command=self.show_users)
 
         logout_button = ttk.Button(
             master=self._frame, text="Logout", command=self._handle_start)
 
         heading_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
-        password_label.grid(padx=5, pady=5)
-        self._password_entry.grid(
-            row=2, column=1, sticky=constants.EW, padx=5, pady=5)
+        self.show_users_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
         logout_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
 
         self._frame.grid_columnconfigure(1, weight=1, minsize=300)
