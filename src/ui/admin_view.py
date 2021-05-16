@@ -48,11 +48,13 @@ class AdminView:
         recycle_amount_label.grid(padx=5, pady=5, column=2)
         list_of_recyclables = ["Bottles and cans", "Cardboard", "Electronics",
                                "Glass", "Metal", "Plastic", "Paper", "Batteries", "Clothes"]
+        list_of_units = ["", "square meters", "kilograms",
+                               "kilograms", "kilograms", "kilograms", "kilograms", "", ""]
         for i in range(0, 8):
             recyclable_label = ttk.Label(master=self._frame, text=(
                 list_of_recyclables[i], "recycled:"))
             recyclable_amount_label = ttk.Label(
-                master=self._frame, text=recycle_service.recycle_list_all()[i])
+                master=self._frame, text=(recycle_service.recycle_list_all()[i], list_of_units[i]))
             recyclable_label.grid(padx=5, pady=5, column=1)
             recyclable_amount_label.grid(padx=5, pady=5, column=2)
         self._logout_button = ttk.Button(
