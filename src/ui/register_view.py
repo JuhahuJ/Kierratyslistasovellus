@@ -1,9 +1,11 @@
+'''this module is responsible for register view'''
 from tkinter import ttk, constants
 from services.recycle_service import recycle_service
 
 
 class RegisterView:
     '''this class is responsible for the register view of the app'''
+
     def __init__(self, root, handle_start):
         self._root = root
         self._username_entry = None
@@ -39,7 +41,8 @@ class RegisterView:
         password_label = ttk.Label(master=self._frame, text="Password")
         self._password_entry = ttk.Entry(master=self._frame)
 
-        password_again_label = ttk.Label(master=self._frame, text="Password again")
+        password_again_label = ttk.Label(
+            master=self._frame, text="Password again")
         self._password_again_entry = ttk.Entry(master=self._frame)
 
         button = ttk.Button(

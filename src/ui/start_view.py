@@ -1,9 +1,11 @@
+'''this module is responsible for start view'''
 from tkinter import ttk, constants
 from services.recycle_service import recycle_service
 
 
 class StartView:
     '''this class is responsible for the start view of the app'''
+
     def __init__(self, root, handle_list, handle_register, handle_admin_login):
         self._root = root
         self._username_entry = None

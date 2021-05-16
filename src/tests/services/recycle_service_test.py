@@ -28,6 +28,9 @@ class FakeUserRepository:
         self.users.append(user)
         return user
 
+    def del_user(self, user):
+        self.users.pop()
+
 
 class TestRecycleService(unittest.TestCase):
     def setUp(self):
@@ -35,7 +38,8 @@ class TestRecycleService(unittest.TestCase):
         self.user_ahuj = User('ahuj', 'abab223')
 
     def login(self, user):
-        self.recycle_service.register(user.username, user.password, user.password)
+        self.recycle_service.register(
+            user.username, user.password, user.password)
 
     def test_add_to_recycle(self):
         self.login(self.user_ahuj)
@@ -50,3 +54,9 @@ class TestRecycleService(unittest.TestCase):
         self.recycle_service.register(username, password, password)
         self.assertEqual(len(users), 1)
         self.assertEqual(users[0].username, username)
+
+    def test_del_user(self):
+        self.login(self.user_ahuj)
+        self.recycle_service.remove_user(self.user_ahuj.username)
+        users = self.recycle_service.get_users()
+        self.assertEqual(len(users), 0)

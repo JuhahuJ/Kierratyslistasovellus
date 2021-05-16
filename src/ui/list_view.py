@@ -1,9 +1,11 @@
+'''this module is responsible for list view'''
 from tkinter import ttk, constants
 from services.recycle_service import recycle_service
 
 
 class ListView:
     '''this class is responsible for the list view of the app'''
+
     def __init__(self, root, handle_start):
         self._root = root
         self.bottle_can_entry = None
@@ -43,22 +45,28 @@ class ListView:
             self.bottle_can_amount['text'] = recycle_service.recycle_list()[0]
         elif material == "cardboard":
             amount = self.cardboard_entry.get()
-            self.cardboard_amount['text'] = (recycle_service.recycle_list()[1], "square", "meters")
+            self.cardboard_amount['text'] = (
+                recycle_service.recycle_list()[1], "square", "meters")
         elif material == "electronics":
             amount = self.electronics_entry.get()
-            self.electronics_amount['text'] = (recycle_service.recycle_list()[2], "kilograms")
+            self.electronics_amount['text'] = (
+                recycle_service.recycle_list()[2], "kilograms")
         elif material == "glass":
             amount = self.glass_entry.get()
-            self.glass_amount['text'] = (recycle_service.recycle_list()[3], "kilograms")
+            self.glass_amount['text'] = (
+                recycle_service.recycle_list()[3], "kilograms")
         elif material == "metal":
             amount = self.metal_entry.get()
-            self.metal_amount['text'] = (recycle_service.recycle_list()[4], "kilograms")
+            self.metal_amount['text'] = (
+                recycle_service.recycle_list()[4], "kilograms")
         elif material == "plastic":
             amount = self.plastic_entry.get()
-            self.plastic_amount['text'] = (recycle_service.recycle_list()[5], "kilograms")
+            self.plastic_amount['text'] = (
+                recycle_service.recycle_list()[5], "kilograms")
         elif material == "paper":
             amount = self.paper_entry.get()
-            self.paper_amount['text'] = (recycle_service.recycle_list()[6], "kilograms")
+            self.paper_amount['text'] = (
+                recycle_service.recycle_list()[6], "kilograms")
         elif material == "batteries":
             amount = self.batteries_entry.get()
             self.batteries_amount['text'] = recycle_service.recycle_list()[7]
@@ -66,8 +74,7 @@ class ListView:
             amount = self.clothes_entry.get()
             self.clothes_amount['text'] = recycle_service.recycle_list()[8]
         recycle_service.recycle_list_update(amount, material)
-        #self._handle_start()
-
+        # self._handle_start()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

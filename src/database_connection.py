@@ -1,3 +1,4 @@
+'''this module is responsible for database connection'''
 import os
 import sqlite3
 

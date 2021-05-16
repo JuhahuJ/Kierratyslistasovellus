@@ -1,3 +1,4 @@
+'''this module is responsible for the ui of the app'''
 from ui.start_view import StartView
 from ui.list_view import ListView
 from ui.register_view import RegisterView
@@ -7,6 +8,7 @@ from ui.admin_view import AdminView
 
 class UI:
     '''this class is responsible for changing between the different views of the app'''
+
     def __init__(self, root):
         self._root = root
         self._current_view = None
@@ -53,11 +55,11 @@ class UI:
 
     def _show_admin_login_view(self):
         self._hide_current_view()
-        self._current_view = AdminLoginView(self._root, self._handle_admin, self._handle_start)
+        self._current_view = AdminLoginView(
+            self._root, self._handle_admin, self._handle_start)
         self._current_view.pack()
-    
+
     def _show_admin_view(self):
         self._hide_current_view()
         self._current_view = AdminView(self._root, self._handle_start)
         self._current_view.pack()
-

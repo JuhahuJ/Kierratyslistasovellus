@@ -16,7 +16,8 @@ def create_tables(connection, adminpass):
     cursor.execute(
         '''create table users(id integer primary key, username text, password text);''')
     cursor.execute('''create table adminpass(password text);''')
-    cursor.execute('''insert into adminpass (password) values (?)''', (adminpass,))
+    cursor.execute(
+        '''insert into adminpass (password) values (?)''', (adminpass,))
     cursor.execute('''create table recycle(id integer primary key, username_id integer, bottles_cans integer, cardboard integer,
     electronics integer, glass integer, metal integer, plastic integer, paper integer, batteries integer, clothes integer);''')
     connection.commit()

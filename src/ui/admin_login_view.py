@@ -1,9 +1,11 @@
+'''this module is responsible for admin login view'''
 from tkinter import ttk, constants
 from services.recycle_service import recycle_service
 
 
 class AdminLoginView:
-    '''this class is responsible for the start view of the app'''
+    '''this class is responsible for the admin login view of the app'''
+
     def __init__(self, root, handle_admin, handle_start):
         self._root = root
         self._password_entry = None

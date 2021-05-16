@@ -1,3 +1,4 @@
+'''database build command'''
 from initialize_database import initialize_database
 
 

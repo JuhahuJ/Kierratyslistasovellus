@@ -1,3 +1,4 @@
+'''this module has user related functions'''
 from database_connection import get_database_connection
 from entities.user import User
 
@@ -9,6 +10,7 @@ def get_user(row):
 
 class UserRepository:
     '''this class is responsible for functions related to users in the database'''
+
     def __init__(self, connection):
         self._connection = connection
 
@@ -37,10 +39,11 @@ class UserRepository:
         self._connection.commit()
         return user
 
-    def check_admin_password(self, password):
+    def check_admin_password(self):
         '''gets the admin password from the database'''
         cursor = self._connection.cursor()
-        adminpass = cursor.execute('select password from adminpass').fetchone()[0]
+        adminpass = cursor.execute(
+            'select password from adminpass').fetchone()[0]
         return adminpass
 
     def del_user(self, username):
@@ -48,7 +51,6 @@ class UserRepository:
         cursor = self._connection.cursor()
         cursor.execute('delete from users where username = ?', (username,))
         self._connection.commit()
-        return
 
 
 user_repository = UserRepository(get_database_connection())

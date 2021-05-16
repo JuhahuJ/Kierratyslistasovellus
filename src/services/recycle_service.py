@@ -1,28 +1,37 @@
+'''this module has the app's functions and errors'''
 from entities.user import User
 from repositories.user_repository import (
     user_repository as default_user_repository)
 from database_connection import get_database_connection
 
+
 class IncorrectUserError(Exception):
     pass
+
 
 class ExistingUsernameError(Exception):
     pass
 
+
 class UsernameTooShortError(Exception):
     pass
+
 
 class PasswordTooShortError(Exception):
     pass
 
+
 class IncorrectAdminPassError(Exception):
     pass
+
 
 class PasswordsDontMatchError(Exception):
     pass
 
+
 class RecycleService:
     '''this class is responsible for the app's functions'''
+
     def __init__(self, user_repository=default_user_repository):
         self._user = None
         self._user_repository = user_repository
@@ -38,23 +47,26 @@ class RecycleService:
 
     def login_admin(self, password):
         '''loggin in the admin account'''
-        check = self._user_repository.check_admin_password(password)
+        check = self._user_repository.check_admin_password()
         if check == password:
             return check
-        else:
-            raise IncorrectAdminPassError('That is not the admin password')
+        raise IncorrectAdminPassError('That is not the admin password')
 
     def register(self, username, password, password_again):
         '''creating a user with the given username and password'''
         duplicate_user = self._user_repository.find_user(username)
         if duplicate_user:
-            raise ExistingUsernameError(f'There already exists a user with the username: {username}')
+            raise ExistingUsernameError(
+                f'There already exists a user with the username: {username}')
         if len(username) < 3:
-            raise UsernameTooShortError('Username has to be at least three characters long')
-        if len(password) <4:
-            raise PasswordTooShortError('Password has to be at least four characters long')
+            raise UsernameTooShortError(
+                'Username has to be at least three characters long')
+        if len(password) < 4:
+            raise PasswordTooShortError(
+                'Password has to be at least four characters long')
         if password != password_again:
-            raise (PasswordsDontMatchError('Both passwords need to be identical'))
+            raise (PasswordsDontMatchError(
+                'Both passwords need to be identical'))
         user = self._user_repository.create_user(User(username, password))
         return user
 
@@ -82,7 +94,8 @@ class RecycleService:
         username_id = connection.execute(
             'select id from users where username = ?', (username,)).fetchone()[0]
         connection.execute(
-            'update recycle set {} = ({}+?) where username_id = ?'.format(what_to_update, what_to_update),
+            'update recycle set {} = ({}+?) where username_id = ?'.format(
+                what_to_update, what_to_update),
             (amount, username_id,))
         connection.commit()
 
@@ -93,5 +106,6 @@ class RecycleService:
     def remove_user(self, username):
         '''removes user'''
         return self._user_repository.del_user(username)
+
 
 recycle_service = RecycleService()
