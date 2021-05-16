@@ -10,6 +10,10 @@ Sovelluksen avulla voi pitää yllä sitä, kuinka paljon on kierrättäny. Sove
 
 [Ohjeet](https://github.com/JuhahuJ/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Arkkitehtuuri](https://github.com/JuhahuJ/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+[Testaus](https://github.com/JuhahuJ/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 # Asennus
 
 1. Asenna poetry komennolla:
