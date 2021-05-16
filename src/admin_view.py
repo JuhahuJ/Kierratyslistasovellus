@@ -39,6 +39,7 @@ class AdminView:
         self._logout_button = ttk.Button(
             master=self._frame, text="Logout", command=self._handle_start)
         self._logout_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
+        #poista nappula
 
     def del_user(self, username):
         recycle_service.remove_user(username)
