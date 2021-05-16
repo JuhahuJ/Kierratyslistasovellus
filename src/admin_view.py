@@ -41,7 +41,6 @@ class AdminView:
         self._logout_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
 
     def del_user(self, username):
-        print(username)
         recycle_service.remove_user(username)
 
     def confirm(self, username):

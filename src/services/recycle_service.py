@@ -18,6 +18,9 @@ class PasswordTooShortError(Exception):
 class IncorrectAdminPassError(Exception):
     pass
 
+class PasswordsDontMatchError(Exception):
+    pass
+
 class RecycleService:
     '''this class is responsible for the app's functions'''
     def __init__(self, user_repository=default_user_repository):
@@ -41,7 +44,7 @@ class RecycleService:
         else:
             raise IncorrectAdminPassError('That is not the admin password')
 
-    def register(self, username, password):
+    def register(self, username, password, password_again):
         '''creating a user with the given username and password'''
         duplicate_user = self._user_repository.find_user(username)
         if duplicate_user:
@@ -50,6 +53,8 @@ class RecycleService:
             raise UsernameTooShortError('Username has to be at least three characters long')
         if len(password) <4:
             raise PasswordTooShortError('Password has to be at least four characters long')
+        if password != password_again:
+            raise (PasswordsDontMatchError('Both passwords need to be identical'))
         user = self._user_repository.create_user(User(username, password))
         return user
 

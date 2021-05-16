@@ -8,6 +8,7 @@ class RegisterView:
         self._root = root
         self._username_entry = None
         self._password_entry = None
+        self._password_again_entry = None
         self._handle_start = handle_start
         self._frame = None
         self._initialize()
@@ -23,7 +24,8 @@ class RegisterView:
     def _register_handler(self):
         username = self._username_entry.get()
         password = self._password_entry.get()
-        recycle_service.register(username, password)
+        password_again = self._password_again_entry.get()
+        recycle_service.register(username, password, password_again)
         self._handle_start()
 
     def _initialize(self):
@@ -37,6 +39,9 @@ class RegisterView:
         password_label = ttk.Label(master=self._frame, text="Password")
         self._password_entry = ttk.Entry(master=self._frame)
 
+        password_again_label = ttk.Label(master=self._frame, text="Password again")
+        self._password_again_entry = ttk.Entry(master=self._frame)
+
         button = ttk.Button(
             master=self._frame, text="Create account", command=self._register_handler)
 
@@ -47,6 +52,9 @@ class RegisterView:
         password_label.grid(padx=5, pady=5)
         self._password_entry.grid(
             row=2, column=1, sticky=constants.EW, padx=5, pady=5)
+        password_again_label.grid(padx=5, pady=5)
+        self._password_again_entry.grid(
+            row=3, column=1, sticky=constants.EW, padx=5, pady=5)
         button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
 
         self._frame.grid_columnconfigure(1, weight=1, minsize=300)
