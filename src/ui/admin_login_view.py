@@ -41,9 +41,8 @@ class AdminLoginView:
 
         heading_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
         password_label.grid(padx=5, pady=5)
-        self._password_entry.grid(
-            row=2, column=1, sticky=constants.EW, padx=5, pady=5)
-        admin_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
-        return_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
+        self._password_entry.grid(sticky=constants.EW, padx=5, pady=5)
+        admin_button.grid(sticky=constants.EW, padx=5, pady=5)
+        return_button.grid(sticky=constants.EW, padx=5, pady=5)
 
-        self._frame.grid_columnconfigure(1, weight=1, minsize=300)
+        self._frame.grid_columnconfigure(1, weight=1)

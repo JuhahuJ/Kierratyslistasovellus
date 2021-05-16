@@ -68,6 +68,13 @@ class RecycleService:
             'select bottles_cans, cardboard, electronics, glass, metal, plastic, paper, batteries, clothes from recycle where username_id = ?', (username_id,)).fetchone()
         return get_recycle
 
+    def recycle_list_all(self):
+        '''getting the amount of items recycled by all users'''
+        connection = get_database_connection()
+        get_recycle_all = connection.execute(
+            'select sum(bottles_cans), sum(cardboard), sum(electronics), sum(glass), sum(metal), sum(plastic), sum(paper), sum(batteries), sum(clothes) from recycle').fetchone()
+        return get_recycle_all
+
     def recycle_list_update(self, amount, what_to_update):
         '''update amount of material recycled'''
         connection = get_database_connection()
