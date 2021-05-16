@@ -8,5 +8,7 @@
 | 27.4  | 7 h  | kierrätyslista |
 | 3.5  | 3 h  | docstring ja koodin siistiminen |
 | 4.5  | 4 h  | virheilmoitukset |
+| 15.5  | 1 h  | koodin siivousta |
+| 16.5  | 9 h  | admin menu ja viimeistely |
 
-Yhteensä 28 h
+Yhteensä 38 h
