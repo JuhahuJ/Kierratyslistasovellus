@@ -24,7 +24,7 @@ poetry install
 ```bash
 poetry run invoke build
 ```
-3. Anna sovellukselle valitsemasi admin salasanam jota käytetään admin menuun kirjautumiseen
+3. Anna sovellukselle valitsemasi admin salasana jota käytetään admin menuun kirjautumiseen
 
 4. Käynnistä sovellus komennolla:
 ```bash
