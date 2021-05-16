@@ -12,24 +12,23 @@ poetry install
 ```bash
 poetry run invoke build
 ```
-3. Käynnistä sovellus komennolla:
+3. Anna sovelluksen adminkäyttäjälle salasana
+
+
+4. Käynnistä sovellus komennolla:
 ```bash
 poetry run invoke start
 ```
 
 ## Käyttäjän luominen ja kirjautuminen
 
-Sovellus aukeaa näkymään, jossa on laatikot käyttäjänimelle ja salasanalle, kirjaudu sisään (login) nappula ja rekisteröidy (register) nappula. 
+Sovelluksen avattuasi paina register näppäintä ja valitse itsellesi käyttäjätunnus (username) ja salasana (password)
 
-Jätä muut hetkeksi huomioimatta ja paina rekisteröitymis nappulaa.
+Kirjoita käyttäjätunnus ja salasana niille varattuihin laatikoihin.
 
-Nyt aukeaa kirjautumisnäkymän kanssa lähes samanlainen rekisteröitymisnäkymä, josta puuttuu kirjaudu sisään nappula.
+Huomaa, että sinun täytyy kirjoittaa sama salasana kahdesti.
 
-Valitse itsellesi käyttäjänimi ja salasana, ja kirjoita ne niille varattuihin laatikkoihin.
-
-Paina rekisteröitymis nappulaa ja siirry takaisin kirjautumisnäkymään.
-
-Nyt voit kirjautua sisään, tai luoda uusia käyttäjiä noudattaen edellisiä ohjeita.
+Paina rekisteröitymisnäppäintä, jonka jälkeen voit kirjautua sisään kirjoittamalla valitsemasi käyttäjänimen ja salasanan kirjautumissivulla.
 
 ## Kierrätyslistanäkymä
 
@@ -37,6 +36,12 @@ Kirjauduttuasi sisään näet listan eri kierrätysmateriaaleja.
 
 Voit lisätä materiaaleja kierrätetyksi kirjoittamalla numeron sille varattuun laatikkoon ja painamalla sen vieressä olevaa nappulaa.
 
-Sovelluksen tämänhetkisessä versiossa nappulaa painettuasi sinun täytyy kirjautua sisään uudelleen, jotta voit nähdä muutokset.
-
 Voit kirjautua ulos painamalla kirjaudu ulos (logout) nappulaa.
+
+## Adminkäyttäjä
+
+Jos valitset kirjautumissivulla kirjaudu admin käyttäjällä näppäimen, sinut ohjataan sivulle, jolle voit kirjoittaa sovelluksen alustuksessa asettamasi salasanan.
+
+Kirjauduttuasi sisään voit painaa näytä käyttäjät painiketta, näytä tilastot painiketta, tai molempia.
+
+Käyttäjiä voi poistaa painamalla käyttäjän nimen päältä.
