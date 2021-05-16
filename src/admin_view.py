@@ -8,7 +8,8 @@ class AdminView:
     def __init__(self, root, handle_start):
         self._root = root
         self._password_entry = None
-        self.show_users_button = None
+        self._show_users_button = None
+        self._logout_button = None
         self._handle_start = handle_start
         self._frame = None
         self._initialize()
@@ -27,13 +28,17 @@ class AdminView:
         self._handle_list()
 
     def show_users(self):
-        self.show_users_button.destroy()
+        self._show_users_button.destroy()
+        self._logout_button.destroy()
         users_label = ttk.Label(master=self._frame, text="Users:")
         users_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
         for i in range(len(recycle_service.get_users())):
             user_button = ttk.Button(
                 master=self._frame, text=(recycle_service.get_users()[i][1]), command=lambda j=recycle_service.get_users()[i][1]: self.confirm(j))
             user_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
+        self._logout_button = ttk.Button(
+            master=self._frame, text="Logout", command=self._handle_start)
+        self._logout_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
 
     def del_user(self, username):
         print(username)
@@ -49,14 +54,14 @@ class AdminView:
 
         heading_label = ttk.Label(master=self._frame, text="Admin menu")
 
-        self.show_users_button = ttk.Button(
+        self._show_users_button = ttk.Button(
             master=self._frame, text="Show users", command=self.show_users)
 
-        logout_button = ttk.Button(
+        self._logout_button = ttk.Button(
             master=self._frame, text="Logout", command=self._handle_start)
 
         heading_label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
-        self.show_users_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
-        logout_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
+        self._show_users_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
+        self._logout_button.grid(columnspan=2, sticky=constants.EW, padx=5, pady=5)
 
         self._frame.grid_columnconfigure(1, weight=1, minsize=300)
