@@ -35,7 +35,7 @@ class TestRecycleService(unittest.TestCase):
         self.user_ahuj = User('ahuj', 'abab223')
 
     def login(self, user):
-        self.recycle_service.register(user.username, user.password)
+        self.recycle_service.register(user.username, user.password, user.password)
 
     def test_add_to_recycle(self):
         self.login(self.user_ahuj)
@@ -47,6 +47,6 @@ class TestRecycleService(unittest.TestCase):
         username = self.user_ahuj.username
         password = self.user_ahuj.password
         users = self.recycle_service.get_users()
-        self.recycle_service.register(username, password)
+        self.recycle_service.register(username, password, password)
         self.assertEqual(len(users), 1)
         self.assertEqual(users[0].username, username)
