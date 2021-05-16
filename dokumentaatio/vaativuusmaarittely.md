@@ -2,36 +2,37 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen avulla käyttäjä voi pitää kirjaa kierrätyksestään ja roskauksestaan. Sovellusta voi käyttää usea käyttäjä, joilla on kaikilla oma kierrätyslista.
+Sovelluksen avulla käyttäjä voi pitää kirjaa kierrätyksestään. Sovellusta voi käyttää usea käyttäjä, joilla on kaikilla oma kierrätyslista.
 
 ## Käyttäjät
 
-Sovelluksessa on normaalikäyttäjiä ja erikoisoikeuksilla varustettuja adminkäyttäjiä.
+Sovelluksessa on normaalikäyttäjiä ja erikoisoikeuksilla varustettu adminkäyttäjä.
 
 ## Käyttöliittymät
 
-Sovelluksessa on neljä näkymää. 
+Sovelluksessa on viisi näkymää. 
 1. Sisäänkirjautumisruutu, jossa on myös nappula käyttäjän luomiselle. Tehty
 2. Käyttäjän luomisruutu. Tehty
 3. Listanäkymä, johon pääsee sisäänkirjautumisen jälkeen. Tehty
 4. Adminnäkymä, johon pääsee, jos kirjautuu adminkäyttäjällä.
+5. Admin kirjautumisruutu, johon pääsee tavallisesta sisäänkirjautumisruudusta.
 
 ## Sovelluksen toiminnot
-Käyttäjä voi luoda käyttäjätunnuksen. Tehty
+Käyttäjä voi luoda käyttäjätunnuksen.
 
-Käyttäjätunnuksen minimipituus on 3 merkkiä. Tehty
+Käyttäjätunnuksen minimipituus on 3 merkkiä.
 
-Adminkäyttäjillä ei minimipituutta.
+Salasanan minimipituus on 4 merkkiä.
 
-Salasanan minimipituus on 4 merkkiä. Tehty
+Käyttäjä voi kirjautua sisään.
 
-Käyttäjä voi kirjautua sisään. Tehty
+Jos käyttäjätunnus on jo olemassa, sovellus antaa virheilmoituksen.
 
-Jos käyttäjätunnus on jo olemassa, sovellus antaa virheilmoituksen. Tehty
+Listanäkymässä käyttäjä näkee eri kierrätysmateriaalit. Hän voi lisätä valitsemansa määrän materiaalia kierrätetyksi.
 
-Listanäkymässä käyttäjä näkee eri kierrätysmateriaalit. Hän voi lisätä valitsemansa määrän materiaalia kierrätetyksi. Tehty
-
-Käyttäjä voi kirjautua ulos. Tehty
+Käyttäjä voi kirjautua ulos.
 
 Adminnäkymässä voi poistaa käyttäjiä ja tarkastella tilastoja kierrätyksestä.
+
+Adminkäyttäjän salasanan voi antaa sovellusta alustaessa.
 
